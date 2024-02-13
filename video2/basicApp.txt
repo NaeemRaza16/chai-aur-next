@@ -1,0 +1,1 @@
+In this video, file structure of react was discuss and run the app
