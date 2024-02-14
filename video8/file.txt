@@ -1,0 +1,30 @@
+InterView Question
+
+=========================Problem======================
+In the above case the counter value will only update once time even there is setCounterValue 4 times call
+, but at every time counterValue remain same as of 15, because useState not update its value instantly
+
+const addCounter = () => {
+    if (counterValue < 20) {
+      setCounterValue(counterValue + 1)
+      setCounterValue(counterValue + 1)
+      setCounterValue(counterValue + 1)
+      setCounterValue(counterValue + 1)
+    }else {
+      alert("Value of counter never increase by 20")
+    }
+  }
+
+=========================Solution======================
+To solve above problem we need to access the previous value of counter which is avaible in the call back function of setCounterValue.
+
+const addCounter = () => {
+    if (counterValue < 20) {
+      setCounterValue(prevCountervalue => prevCountervalue + 1)
+      setCounterValue(prevCountervalue => prevCountervalue + 1)
+      setCounterValue(prevCountervalue => prevCountervalue + 1)
+      setCounterValue(prevCountervalue => prevCountervalue + 1)
+    }else {
+      alert("Value of counter never increase by 20")
+    }
+  }
